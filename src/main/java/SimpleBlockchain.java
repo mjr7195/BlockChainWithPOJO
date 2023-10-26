@@ -106,16 +106,16 @@ public class SimpleBlockchain {
         String jsonString = gson.toJson(creditCard);
 
         // Deserialization
-        String inputJsonString = "{\"cardHolderName\":\"Jane Doe\",\"creditCardNum\":1234567865,\"exDate\":\"2/28\",\"secCode\":234}";
-        CreditCard deserializedStudent = gson.fromJson(inputJsonString, CreditCard.class);
+        String inputJsonString = "{\"cardHoldername\":\"Jane Doe\",\"creditCardNum\":1234567865,\"exDate\":\"2/28\",\"secCode\":234}";
+        CreditCard deserializedCreditCard = gson.fromJson(inputJsonString, CreditCard.class);
 
         // Create a new blockchain
         Blockchain blockchain = new Blockchain();
 
         // Add some blocks to the blockchain
-        blockchain.addBlock("Transaction 1");
-        blockchain.addBlock("Transaction 2");
-        blockchain.addBlock("Transaction 3");
+        blockchain.addBlock(deserializedCreditCard.cardHoldername);
+        blockchain.addBlock(deserializedCreditCard.exDate);
+
 
         // Print the blockchain
         blockchain.printBlockchain();
