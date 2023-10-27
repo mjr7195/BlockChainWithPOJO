@@ -103,7 +103,13 @@ public class SimpleBlockchain {
 
         // Serialization
         CreditCard creditCard = new CreditCard("John Doe", 1234567865, "2/28", 234);
-        String jsonString = gson.toJson(creditCard);
+        String jsonStringCreditCard = gson.toJson(creditCard);
+
+        BankAccount bankAccount = new BankAccount(6783730, 9271453);
+        String jsonStringBankAcc = gson.toJson(bankAccount);
+
+        Student student = new Student("Billy Joe", 19, 80);
+        String jsonStringStudent = gson.toJson(student);
 
         // Deserialization
         String inputJsonString = "{\"cardHoldername\":\"Jane Doe\",\"creditCardNum\":1234567865,\"exDate\":\"2/28\",\"secCode\":234}";
@@ -113,8 +119,10 @@ public class SimpleBlockchain {
         Blockchain blockchain = new Blockchain();
 
         // Add some blocks to the blockchain
-        blockchain.addBlock(deserializedCreditCard.cardHoldername);
-        blockchain.addBlock(deserializedCreditCard.exDate);
+        blockchain.addBlock(jsonStringCreditCard);
+        blockchain.addBlock(jsonStringBankAcc);
+        blockchain.addBlock(jsonStringStudent);
+
 
 
         // Print the blockchain
